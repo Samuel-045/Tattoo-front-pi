@@ -1,0 +1,35 @@
+<div *ngIf="isOpen" class="modal-Item" (click)="closeModal()">
+  <div class="container-item" (click)="$event.stopPropagation()">
+    <div class="titulo">
+      <div class="texto">
+        <h1>{{nomeI}}</h1>
+        <p>Aqui você pode editar ou excluir seu produto.</p>
+      </div>
+      <button (click)="fechaModalDel()">
+        <img src="/assets/images/estoque/lixo.png" alt="Excluir" />
+      </button>
+    </div>
+    <form>
+      <div class="container-input">
+        <label>Nome</label>
+        <input type="text" placeholder="{{nomeI}}" [(ngModel)]="produto.nome" name="nome" />
+      </div>
+      <div class="container-input">
+        <label>URL Imagem</label>
+        <input type="text" placeholder="{{urlI}}" [(ngModel)]="produto.url" name="url" />
+      </div>
+      <div class="container-input">
+        <label>Quantidade Disponível</label>
+        <input type="number" placeholder="{{quantidadeI}}" [(ngModel)]="produto.quantidade" name="quantidade" />
+      </div>
+      <div class="container-input">
+        <label>Quantidade Total</label>
+        <input type="number" placeholder="{{quantidadeDisponivelI}}" [(ngModel)]="produto.quantidadeDisponivel" name="quantidadeDisponivel" />
+      </div>
+    </form>
+    <div class="botoes">
+      <button (click)="closeModal()">Cancelar</button>
+      <button (click)="fechaModalAlt()">Alterar</button>
+    </div>
+  </div>
+</div>

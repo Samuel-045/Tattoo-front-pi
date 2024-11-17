@@ -1,0 +1,35 @@
+<div *ngIf="isOpen" class='modal-Estoque' (click)="closeModal()">
+      
+    <div class='container-Estoque' (click)="$event.stopPropagation()">
+       
+        <div class='titulo'>
+            <h1>Cadastre um novo produto</h1>
+            <p>
+                Selecione nome, imagem e quantidade disponível/total do
+                produto para adicionar ao estoque.
+            </p>
+        </div>
+
+        <form>
+            <div class='container-input'>
+                <label htmlFor=''>Nome</label>
+                <input id="nome" type="text" [(ngModel)]="produto.nome" name="nome" />
+            </div>
+            <div class='container-input'>
+                <label htmlFor=''>Url Imagem</label>
+                <input id="url" type="text" [(ngModel)]="produto.url" name="url" />
+            </div>
+            <div class='container-input'>
+                <label htmlFor=''>Quantidade Disponível</label>
+                <input id="quantidade" type="number"  [(ngModel)]="produto.quantidade" name="quantidade" />
+            </div>
+            <div class='container-input'>
+                <label htmlFor=''>Quantidade Total</label>
+                <input id="quantidadeDisponivel" type="number" [(ngModel)]="produto.quantidadeDisponivel" name="quantidadeDisponivel" />
+
+            </div>
+        </form>
+
+        <button (click)="fechaModalCad()">Adicionar</button>
+    </div>
+</div>

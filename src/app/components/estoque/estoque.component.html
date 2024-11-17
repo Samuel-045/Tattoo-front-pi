@@ -1,0 +1,60 @@
+<div class='storage-page'>
+    <div class='button-section'>
+        <div class='img'>
+            <img class='butterfly' src='./assets/images/estoque/borboleta.png' alt="Borboleta" />
+        </div>
+        <div class='botao-estoque'>
+            <button (click)="navegarHome()" >Home</button>
+        </div>
+        
+    </div>
+
+    <div class='container-conteudo'>
+        <div class='storage-search'>
+            <div class='container-procurar'>
+                <div class='text'>
+                    <h3>Estoque</h3>
+                    <p>Aqui você pode ver todos os itens e sua quantidade do estoque.</p>
+                </div>
+
+                <div class='search-product'>
+                    <div class='search'>
+                        <input 
+                            class='input' 
+                            type='text' 
+                            placeholder='Buscar produto...'
+                            [(ngModel)]="searchText" 
+                            (ngModelChange)="filterItems()" 
+                        />
+                        <div class='botao-estoque'>
+                             <button class='button-search'>Buscar</button>
+                        </div>
+                    </div>
+                    
+                    <div class='botao-estoque'>
+                        <app-modal
+                        *ngIf="openModal"
+                        [isOpen]="openModal"
+                        [closeModal]="FechaModal"
+                        (produtoCadastrado)="onProdutoCadastrado()">
+                        </app-modal>
+                         <button (click)="AtivaModal()" class='new-product'>+ Novo Produto</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-produtos" >
+            <div *ngFor="let item of filteredItems">
+                <app-item-estoque
+                    [id]="+item.id"
+                    [nome]="item.nome || 'Nome não disponível'"
+                    [url]="item.url || '/assets/images/estoque/default.png'"
+                    [quantidade]="+item.quantidade || 0"
+                    [quantidadeDisponivel]="+item.quantidadeDisponivel || 0"
+                    (produtoAlterado)="onProdutoCadastrado()"
+                    (produtoDeletado)="onProdutoCadastrado()">
+                </app-item-estoque>
+        </div>
+    </div>
+</div>

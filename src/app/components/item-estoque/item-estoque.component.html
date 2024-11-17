@@ -1,0 +1,24 @@
+<div class='comp-itemEstoque' >
+    <div class='container-itemEstoque' (click)="AtivaModal()">
+        <app-modal-item
+  [isOpen]="openModal"
+  [closeModal]="FechaModal"
+  [idI]="id"
+  [nomeI]="nome || 'Nome não disponível'"
+  [urlI]="url || '/assets/images/estoque/default.png'"
+  [quantidadeI]="quantidade ?? 0"
+  [quantidadeDisponivelI]="quantidadeDisponivel ?? 0"
+  (produtoAlt)="produtoAlterado.emit()"
+  (produtoDel)="produtoDeletado.emit()">
+</app-modal-item>
+        <div class="nome">
+            <h1>{{nome}}</h1>
+        </div>
+        <img [src]="url || './assets/images/estoque/default.png'" alt="Item">
+        <div class='quantidade'>
+            <p>{{quantidade || 0}}</p>
+            <p>/</p>
+            <p>{{quantidadeDisponivel || 0}}</p>
+        </div>
+    </div>
+</div>

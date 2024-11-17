@@ -1,0 +1,25 @@
+<div class="login-page">
+  <div class="adm">
+    <div class="logo">
+      <h1 class="titulo">Adm Login</h1>
+      <img src="./assets/images/login/borboleta.png" alt="Logo">
+    </div>
+
+      <div class="login">
+        <div class="inputs">
+          <label for="cpf">CPF:</label>
+          <input type="text" [(ngModel)]="cpf" name="cpf" maxlength="14"
+          required
+          (keyup)="formatCPF($event)"/>
+
+          <label for="senha">Senha:</label>
+          <input type="password" id="senha" [(ngModel)]="senha" name="senha" required>
+        </div>
+
+        <div class="botao">
+          <button (click)="logar()">Login</button>
+        </div>
+      </div>
+    </div>
+ 
+</div>
